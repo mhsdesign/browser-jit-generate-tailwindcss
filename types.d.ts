@@ -55,6 +55,7 @@ declare module 'tailwindcss/src/lib/setupContextUtils.js' {
   export interface JitContext {
     changedContent: ChangedContent[];
     getClassList: () => string[];
+    getClassOrder: (classList: string[]) => Array<[string, bigint | null]>;
     tailwindConfig: TailwindConfig;
     variantMap: Map<VariantName, VariantFn[]>;
   }
@@ -89,3 +90,4 @@ declare module 'tailwindcss/src/public/resolve-config.js' {
 
   export default function resolveConfig(tailwindConfig: TailwindConfig): TailwindConfig;
 }
+
