@@ -52,7 +52,17 @@ export interface Tailwindcss {
    *   [myHtmlCode]
    * )
    */
-  generateStylesFromContent: (css: string, content: (Content | string)[]) => Promise<string>;
+  generateStylesFromContent: (css: string, content: (Content | string)[]) => Promise<string>
+
+  /**
+   * Get the class order for the provided list of classes
+   *
+   * @param classList The list of classes to get the order for.
+   * @returns The ordered list of classes.
+   * @example
+   * tailwindcss.getClassOrder(['left-3', 'inset-x-2', bg-red-500', 'bg-blue-500'])
+   */
+  getClassOrder: (classList: string[]) => string[]
 }
 
 /**
@@ -89,7 +99,7 @@ export interface Content {
 
 /**
  * Client side api to generate css via tailwind jit in the browser
- * 
+ *
  * @deprecated with 0.2.0
  */
 declare function jitBrowserTailwindcss(tailwindMainCss: string, jitContent: string, userTailwindConfig?: TailwindConfig): Promise<string>;
